@@ -1,59 +1,59 @@
 window.onload = () => {
 
-     
+
       // ----------------------------- THEME TOGGLER ----------------------------         
-       
+
       //Uncomment below to clear localStorage
-      //localStorage.clear()
+      localStorage.clear()
 
       //getting any previous saved theme
-      let themeMode = localStorage.getItem('theme') 
+      let themeMode = localStorage.getItem('theme')
 
       //create a div for the checkmark
       const checkmark = document.createElement('div')
-  
-      
+
+
       // if no theme has previously been saved in localStorage then use theme-1
       // else set the last saved theme
-       if(!themeMode) {
-             const targetElement = document.querySelector("[data-area-theme='1']")
-             targetElement.appendChild(checkmark).setAttribute('id', 'checkmark') 
-        } 
-        
-      else {
-             const targetElement = document.querySelector("[data-area-theme='" + themeMode + "']")
-             targetElement.appendChild(checkmark).setAttribute('id', 'checkmark')
-             document.documentElement.setAttribute('data-theme', themeMode)     
-       }
+      if (!themeMode) {
+            const targetElement = document.querySelector("[data-area-theme='1']")
+            targetElement.appendChild(checkmark).setAttribute('id', 'checkmark')
+      }
 
-      
+      else {
+            const targetElement = document.querySelector("[data-area-theme='" + themeMode + "']")
+            targetElement.appendChild(checkmark).setAttribute('id', 'checkmark')
+            document.documentElement.setAttribute('data-theme', themeMode)
+      }
+
+
       // adding eventListener to all areas of the toggle button (checkmark-areas)
       document.querySelectorAll('.checkmark-area').forEach(item => {
             item.addEventListener('click', event => {
 
                   //set data-theme on html-element to the theme matching the pressed button
                   document.documentElement.setAttribute('data-theme', item.dataset.areaTheme)
-              
+
                   //move checkmark to the correct position relative to the current theme
                   const currentPos = document.querySelector("#checkmark")
                   let targetDiv = document.querySelector("[data-area-theme='" + item.dataset.areaTheme + "']")
                   targetDiv.appendChild(currentPos)
 
                   //update localStorage
-                  localStorage.setItem('theme', item.dataset.areaTheme )
+                  localStorage.setItem('theme', item.dataset.areaTheme)
             })
       })
 
 
 
 
-     //------------------------------- CALCULATOR ----------------------------------------
-      
-      
+      //------------------------------- CALCULATOR ----------------------------------------
+
+
       class Calculator {
             constructor(previousOperandTextElement, currentOperandTextElement, currentOperand) {
                   this.previousOperandTextElement = previousOperandTextElement
-                  this.currentOperandTextElement =  currentOperandTextElement
+                  this.currentOperandTextElement = currentOperandTextElement
                   this.currentOperand = currentOperand
                   this.clear()
             }
@@ -66,27 +66,27 @@ window.onload = () => {
 
             delete() {
                   this.currentOperand = this.currentOperand.toString().slice(0, -1)
-                  if(this.currentOperand === '') {
+                  if (this.currentOperand === '') {
                         this.currentOperand = '0'
                   }
             }
 
             appendValue(number) {
-                  if(number === '.' && this.currentOperand.includes('.')) return
+                  if (number === '.' && this.currentOperand.includes('.')) return
 
-                  if(number !== '.' && this.currentOperand === '0') {
+                  if (number !== '.' && this.currentOperand === '0') {
                         this.currentOperand = ''
                         this.currentOperand = this.currentOperand.toString() + number.toString()
                   }
                   else {
-                        this.currentOperand = this.currentOperand.toString() + number.toString()         
+                        this.currentOperand = this.currentOperand.toString() + number.toString()
                   }
-                  
+
             }
 
             chooseOperation(operation) {
-                  if(this.currentOperand === '') return
-                  if(this.previousOperand !== '') {
+                  if (this.currentOperand === '') return
+                  if (this.previousOperand !== '') {
                         this.compute()
                   }
                   this.operation = operation
@@ -99,25 +99,25 @@ window.onload = () => {
                   const previous = parseFloat(this.previousOperand)
                   const current = parseFloat(this.currentOperand)
 
-                  if(isNaN(previous) || isNaN(current)) return
+                  if (isNaN(previous) || isNaN(current)) return
 
-                  switch(this.operation) {
-                        case '+': 
+                  switch (this.operation) {
+                        case '+':
                               computation = previous + current
                               break
-                        case '-': 
+                        case '-':
                               computation = previous - current
                               break
-                        case '/': 
+                        case '/':
                               computation = previous / current
                               break
-                        case 'x': 
+                        case 'x':
                               computation = previous * current
                               break
                         default:
                               return
                   }
- 
+
                   this.currentOperand = computation
                   this.operation = undefined
                   this.previousOperand = ''
@@ -126,16 +126,16 @@ window.onload = () => {
 
             updateDisplay() {
                   this.currentOperandTextElement.innerText = this.currentOperand
-                  if(this.operation != null) {
+                  if (this.operation != null) {
                         this.previousOperandTextElement.innerText = `${this.previousOperand} ${this.operation}`
-                  } 
+                  }
                   else {
                         this.previousOperandTextElement.innerText = this.previousOperand
-                  }                
+                  }
             }
       }
 
-      
+
       const numberKeys = document.querySelectorAll('[data-number]')
       const operationKeys = document.querySelectorAll('[data-operation]')
       const equalsKey = document.querySelector('[data-equals]')
@@ -150,18 +150,18 @@ window.onload = () => {
       calculator.updateDisplay()
 
       numberKeys.forEach(button => {
-           button.addEventListener('click', () => {
-            calculator.appendValue(button.innerText)
-            calculator.updateDisplay()
-           }) 
+            button.addEventListener('click', () => {
+                  calculator.appendValue(button.innerText)
+                  calculator.updateDisplay()
+            })
       })
 
       operationKeys.forEach(button => {
             button.addEventListener('click', () => {
-             calculator.chooseOperation(button.innerText)
-             calculator.updateDisplay()
-            }) 
-       })
+                  calculator.chooseOperation(button.innerText)
+                  calculator.updateDisplay()
+            })
+      })
 
       equalsKey.addEventListener('click', button => {
             calculator.compute()
@@ -176,4 +176,5 @@ window.onload = () => {
       deleteKey.addEventListener('click', button => {
             calculator.delete()
             calculator.updateDisplay()
-      })}
+      })
+}
