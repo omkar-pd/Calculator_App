@@ -17,7 +17,7 @@ window.onload = () => {
       // else set the last saved theme
       if (!themeMode) {
             const targetElement = document.querySelector("[data-area-theme='1']")
-            targetElement.appendChild(checkmark).setAttribute('id', 'checkmark')
+            targetElement.appendChild(checkmark).setAttribute('id','checkmark')
       }
 
       else {

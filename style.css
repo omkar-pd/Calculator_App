@@ -5,79 +5,153 @@
   font-weight: 700;
 }
 
+:root {
+  /* theme 1  */
+  /* background */
+  --t1primarybg: hsl(222, 26%, 31%);
+  --t1secondarybg: hsl(223, 31%, 20%);
+  --t1tertiarybg: hsl(224, 36%, 15%);
+
+  /* key */
+  --t1primary-key: hsl(225, 21%, 49%);
+  --t1secondary-key: hsl(6, 63%, 50%);
+  --t1tertiary-key: hsl(30, 25%, 89%);
+
+  --t1primary-key-shadow: hsl(224, 28%, 35%);
+  --t1secondary-key-shadow: hsl(6, 70%, 34%);
+  --t1tertiary-key-shadow: hsl(28, 16%, 65%);
+
+  /* text */
+  --t1primary-text: hsl(221, 14%, 31%);
+  --t1secondary-text: rgba(255, 255, 255, 1);
+  --t1screen-text: rgba(255, 255, 255, 1);
+
+  /* toggle */
+  --t1togglebg: hsl(223, 31%, 20%);
+  --t1toggle-key: hsl(6, 63%, 50%);
+
+  /* theme 2  */
+  /* background */
+  --t2primarybg: hsl(0, 0%, 90%);
+  --t2secondarybg: hsl(0, 5%, 81%);
+  --t2tertiarybg: hsl(0, 0%, 93%);
+  /* key */
+
+  --t2primary-key: hsl(185, 42%, 37%);
+  --t2secondary-key: hsl(25, 98%, 40%);
+  --t2tertiary-key: hsl(45, 7%, 89%);
+
+  --t2primary-key-shadow: hsl(185, 58%, 25%);
+  --t2secondary-key-shadow: hsl(25, 99%, 27%);
+  --t2tertiary-key-shadow: hsl(35, 11%, 61%);
+  /* text */
+
+  --t2primary-text: hsl(60, 10%, 19%);
+  --t2secondary-text: rgba(255, 255, 255, 1);
+  --t2screen-text: black;
+
+  /* toggle */
+  --t2togglebg: hsl(0, 5%, 81%);
+
+  /* theme 3  */
+  /* background */
+  --t3primarybg: hsl(268, 75%, 9%);
+  --t3secondarybg: hsl(268, 71%, 12%);
+  --t3tertiarybg: hsl(268, 71%, 12%);
+  /* key */
+
+  --t3primary-key: hsl(281, 89%, 26%);
+  --t3secondary-key: hsl(176, 100%, 44%);
+  --t3tertiary-key: hsl(268, 47%, 21%);
+
+  --t3primary-key-shadow: hsl(285, 91%, 52%);
+  --t3secondary-key-shadow: hsl(177, 92%, 70%);
+  --t3tertiary-key-shadow: hsl(290, 70%, 36%);
+  /* text */
+
+  --t3primary-text: hsl(52, 100%, 62%);
+  --t3secondary-text: rgba(255, 255, 255, 1);
+  --t3screen-text: hsl(52, 100%, 62%);
+
+  /* toggle */
+  --t3togglebg: hsl(268, 71%, 12%);
+}
+
 html[data-theme="1"] {
   /* theme 1  */
   /* background */
-  --primarybg: hsl(222, 26%, 31%);
-  --secondarybg: hsl(223, 31%, 20%);
-  --tertiarybg: hsl(224, 36%, 15%);
+  --primarybg: var(--t1primarybg);
+  --secondarybg: var(--t1secondarybg);
+  --tertiarybg: var(--t1tertiarybg);
 
   /* key */
-  --primary-key: hsl(225, 21%, 49%);
-  --secondary-key: hsl(6, 63%, 50%);
-  --tertiary-key: hsl(30, 25%, 89%);
+  --primary-key: var(--t1primary-key);
+  --secondary-key: var(--t1secondary-key);
+  --tertiary-key: var(--t1tertiary-key);
 
-  --primary-key-shadow: hsl(224, 28%, 35%);
-  --secondary-key-shadow: hsl(6, 70%, 34%);
-  --tertiary-key-shadow: hsl(28, 16%, 65%);
+  --primary-key-shadow: var(--t1primary-key-shadow);
+  --secondary-key-shadow: var(--t1secondary-key-shadow);
+  --tertiary-key-shadow: var(--t1tertiary-key-shadow);
 
   /* text */
-  --primary-text: hsl(221, 14%, 31%);
-  --secondary-text: rgba(255, 255, 255, 1);
-  --screen-text: rgba(255, 255, 255, 1);
+  --primary-text: var(--t1primary-text);
+  --secondary-text: var(--t1secondary-text);
+  --screen-text: var(--t1screen-text);
 
   /* toggle */
-  --togglebg: hsl(223, 31%, 20%);
-  --toggle-key: hsl(6, 63%, 50%);
+  --togglebg: var(--t1togglebg);
+  --toggle-key: var(--t1toggle-key);
 }
 
 html[data-theme="2"] {
   /* theme 2  */
   /* background */
-  --primarybg: hsl(0, 0%, 90%);
-  --secondarybg: hsl(0, 5%, 81%);
-  --tertiarybg: hsl(0, 0%, 93%);
+  --primarybg: var(--t2primarybg);
+  --secondarybg: var(--t2secondarybg);
+  --tertiarybg: var(--t2tertiarybg);
+
   /* key */
+  --primary-key: var(--t2primary-key);
+  --secondary-key: var(--t2secondary-key);
+  --tertiary-key: var(--t2tertiary-key);
 
-  --primary-key: hsl(185, 42%, 37%);
-  --secondary-key: hsl(25, 98%, 40%);
-  --tertiary-key: hsl(45, 7%, 89%);
+  --primary-key-shadow: var(--t2primary-key-shadow);
+  --secondary-key-shadow: var(--t2secondary-key-shadow);
+  --tertiary-key-shadow: var(--t2tertiary-key-shadow);
 
-  --primary-key-shadow: hsl(185, 58%, 25%);
-  --secondary-key-shadow: hsl(25, 99%, 27%);
-  --tertiary-key-shadow: hsl(35, 11%, 61%);
   /* text */
-
-  --primary-text: hsl(60, 10%, 19%);
-  --secondary-text: rgba(255, 255, 255, 1);
-  --screen-text: black;
+  --primary-text: var(--t2primary-text);
+  --secondary-text: var(--t2secondary-text);
+  --screen-text: var(--t2screen-text);
 
   /* toggle */
-  --togglebg: hsl(0, 5%, 81%);
+  --togglebg: var(--t2togglebg);
+  --toggle-key: var(--t2toggle-key);
 }
 html[data-theme="3"] {
   /* theme 3  */
   /* background */
-  --primarybg: hsl(268, 75%, 9%);
-  --secondarybg: hsl(268, 71%, 12%);
-  --tertiarybg: hsl(268, 71%, 12%);
+  --primarybg: var(--t3primarybg);
+  --secondarybg: var(--t3secondarybg);
+  --tertiarybg: var(--t3tertiarybg);
+
   /* key */
+  --primary-key: var(--t3primary-key);
+  --secondary-key: var(--t3secondary-key);
+  --tertiary-key: var(--t3tertiary-key);
 
-  --primary-key: hsl(281, 89%, 26%);
-  --secondary-key: hsl(176, 100%, 44%);
-  --tertiary-key: hsl(268, 47%, 21%);
+  --primary-key-shadow: var(--t3primary-key-shadow);
+  --secondary-key-shadow: var(--t3secondary-key-shadow);
+  --tertiary-key-shadow: var(--t3tertiary-key-shadow);
 
-  --primary-key-shadow: hsl(285, 91%, 52%);
-  --secondary-key-shadow: hsl(177, 92%, 70%);
-  --tertiary-key-shadow: hsl(290, 70%, 36%);
   /* text */
-
-  --primary-text: hsl(52, 100%, 62%);
-  --secondary-text: rgba(255, 255, 255, 1);
-  --screen-text: hsl(52, 100%, 62%);
+  --primary-text: var(--t3primary-text);
+  --secondary-text: var(--t3secondary-text);
+  --screen-text: var(--t3screen-text);
 
   /* toggle */
-  --togglebg: hsl(268, 71%, 12%);
+  --togglebg: var(--t3togglebg);
+  --toggle-key: var(--t3toggle-key);
 }
 body {
   background-color: var(--primarybg);
