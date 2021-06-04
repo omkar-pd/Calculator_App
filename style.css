@@ -1,0 +1,272 @@
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap");
+
+* {
+  font-family: "Spartan";
+  font-weight: 700;
+}
+
+html[data-theme="1"] {
+  /* theme 1  */
+  /* background */
+  --primarybg: hsl(222, 26%, 31%);
+  --secondarybg: hsl(223, 31%, 20%);
+  --tertiarybg: hsl(224, 36%, 15%);
+
+  /* key */
+  --primary-key: hsl(225, 21%, 49%);
+  --secondary-key: hsl(6, 63%, 50%);
+  --tertiary-key: hsl(30, 25%, 89%);
+
+  --primary-key-shadow: hsl(224, 28%, 35%);
+  --secondary-key-shadow: hsl(6, 70%, 34%);
+  --tertiary-key-shadow: hsl(28, 16%, 65%);
+
+  /* text */
+  --primary-text: hsl(221, 14%, 31%);
+  --secondary-text: rgba(255, 255, 255, 1);
+  --screen-text: rgba(255, 255, 255, 1);
+
+  /* toggle */
+  --togglebg: hsl(223, 31%, 20%);
+  --toggle-key: hsl(6, 63%, 50%);
+}
+
+html[data-theme="2"] {
+  /* theme 2  */
+  /* background */
+  --primarybg: hsl(0, 0%, 90%);
+  --secondarybg: hsl(0, 5%, 81%);
+  --tertiarybg: hsl(0, 0%, 93%);
+  /* key */
+
+  --primary-key: hsl(185, 42%, 37%);
+  --secondary-key: hsl(25, 98%, 40%);
+  --tertiary-key: hsl(45, 7%, 89%);
+
+  --primary-key-shadow: hsl(185, 58%, 25%);
+  --secondary-key-shadow: hsl(25, 99%, 27%);
+  --tertiary-key-shadow: hsl(35, 11%, 61%);
+  /* text */
+
+  --primary-text: hsl(60, 10%, 19%);
+  --secondary-text: rgba(255, 255, 255, 1);
+  --screen-text: black;
+
+  /* toggle */
+  --togglebg: hsl(0, 5%, 81%);
+}
+html[data-theme="3"] {
+  /* theme 3  */
+  /* background */
+  --primarybg: hsl(268, 75%, 9%);
+  --secondarybg: hsl(268, 71%, 12%);
+  --tertiarybg: hsl(268, 71%, 12%);
+  /* key */
+
+  --primary-key: hsl(281, 89%, 26%);
+  --secondary-key: hsl(176, 100%, 44%);
+  --tertiary-key: hsl(268, 47%, 21%);
+
+  --primary-key-shadow: hsl(285, 91%, 52%);
+  --secondary-key-shadow: hsl(177, 92%, 70%);
+  --tertiary-key-shadow: hsl(290, 70%, 36%);
+  /* text */
+
+  --primary-text: hsl(52, 100%, 62%);
+  --secondary-text: rgba(255, 255, 255, 1);
+  --screen-text: hsl(52, 100%, 62%);
+
+  /* toggle */
+  --togglebg: hsl(268, 71%, 12%);
+}
+body {
+  background-color: var(--primarybg);
+}
+.calc {
+  font-family: "Spartan", sans-serif;
+  position: absolute;
+  width: 33%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 80vh;
+}
+.calc-title {
+  position: absolute;
+  bottom: 103%;
+  font-size: 2rem;
+  color: var(--screen-text);
+}
+
+/* Three State Toggle Button */
+.calc-toggle-btn {
+  position: relative;
+}
+.toggle-btn-wrapper {
+  position: absolute;
+  top: -45px;
+  right: 0%;
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25px;
+  width: 70px;
+  background: var(--tertiarybg);
+  border-radius: 0.8rem;
+}
+
+.checkmark-area {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 33%;
+}
+
+#checkmark {
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  background: var(--secondary-key);
+}
+
+.checkmark-area::before {
+  content: attr(data-area-theme);
+  position: absolute;
+  top: -15px;
+  font-size: 0.37em;
+  font-weight: 700;
+  color: var(--screen-text);
+}
+
+.toggle-btn-wrapper::before {
+  content: "theme";
+  position: absolute;
+  top: 3px;
+  right: 95px;
+  text-transform: uppercase;
+  letter-spacing: 0.04rem;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--screen-text);
+}
+
+/* end of three state toggle button */
+/* calculator screen */
+.calc-screen {
+  position: relative;
+  background: var(--tertiarybg);
+  text-align: right;
+  font-size: 1rem;
+  width: 100%;
+  height: 110px;
+  margin: 0 0 20px 0;
+  padding-right: 6px;
+  border-radius: 5px;
+  color: var(--screen-text);
+}
+
+.previous-operand {
+  position: absolute;
+  top: 15%;
+  right: 1rem;
+  font-size: 1.1rem;
+}
+
+.current-operand {
+  position: absolute;
+  top: 40%;
+  right: 1rem;
+  font-size: 2rem;
+}
+/* end calculator screen */
+
+/* keypad */
+.calc-keypad {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 80%;
+  padding: 20px 5px 5px 5px;
+  background: var(--secondarybg);
+  border-radius: 5px;
+}
+.row {
+  display: flex;
+  height: 100%;
+  width: 100%;
+}
+.calc-keypad .keypad-btn {
+  width: 130px;
+  height: 70px;
+  margin: 0px 8px 0px 8px;
+  font-size: 1.5rem;
+  text-align: center;
+  border-radius: 5px;
+  border: none;
+  background: var(--tertiary-key);
+  color: var(--primary-text);
+  box-shadow: 0 5px var(--tertiary-key-shadow);
+}
+
+.calc-keypad .btn-reset {
+  width: 100%;
+  background: var(--primary-key);
+  color: var(--secondary-text);
+  box-shadow: 0 5px var(--primary-key-shadow);
+}
+.calc-keypad .btn-delete,
+.btn-reset {
+  background: var(--primary-key);
+  text-transform: uppercase;
+  color: var(--secondary-text);
+  box-shadow: 0 5px var(--primary-key-shadow);
+}
+
+.calc-keypad .btn-equals {
+  background: var(--secondary-key);
+  color: white;
+  width: 100%;
+  box-shadow: 0 5px var(--secondary-key-shadow);
+  border-radius: 5px;
+}
+
+/* end of keypad */
+
+/* media query */
+
+@media only screen and (max-width: 1100px) {
+  .calc {
+    width: 40%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .calc {
+    width: 45%;
+  }
+}
+
+@media only screen and (max-width: 775px) {
+  .calc {
+    width: 55%;
+  }
+}
+
+@media only screen and (max-width: 655px) {
+  .calc {
+    width: 62%;
+  }
+}
+@media only screen and (max-width: 525px) {
+  .calc {
+    width: 75%;
+  }
+}
+@media only screen and (max-width: 400px) {
+  .calc {
+    width: 98%;
+  }
+}
+/* end of media query */
