@@ -335,12 +335,14 @@ body {
 }
 @media only screen and (max-width: 525px) {
   .calc {
-    width: 75%;
+    width: 85%;
+    margin-top: 6px;
   }
 }
 @media only screen and (max-width: 400px) {
   .calc {
     width: 98%;
+    margin-top: 15px;
   }
 }
 /* end of media query */
