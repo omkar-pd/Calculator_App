@@ -3,30 +3,6 @@
 * {
   font-family: "Spartan";
   font-weight: 700;
-  /* colors should load when site loads on new desktop for the first time */
-  /* theme 1  */
-  /* background */
-  --primarybg: hsl(222, 26%, 31%);
-  --secondarybg: hsl(223, 31%, 20%);
-  --tertiarybg: hsl(224, 36%, 15%);
-
-  /* key */
-  --primary-key: hsl(225, 21%, 49%);
-  --secondary-key: hsl(6, 63%, 50%);
-  --tertiary-key: hsl(30, 25%, 89%);
-
-  --primary-key-shadow: hsl(224, 28%, 35%);
-  --secondary-key-shadow: hsl(6, 70%, 34%);
-  --tertiary-key-shadow: hsl(28, 16%, 65%);
-
-  /* text */
-  --primary-text: hsl(221, 14%, 31%);
-  --secondary-text: rgba(255, 255, 255, 1);
-  --screen-text: rgba(255, 255, 255, 1);
-
-  /* toggle */
-  --togglebg: hsl(223, 31%, 20%);
-  --toggle-key: hsl(6, 63%, 50%);
 }
 
 html[data-theme="1"] {

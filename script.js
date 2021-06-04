@@ -4,7 +4,7 @@ window.onload = () => {
       // ----------------------------- THEME TOGGLER ----------------------------         
 
       //Uncomment below to clear localStorage
-      localStorage.clear()
+      // localStorage.clear()
 
       //getting any previous saved theme
       let themeMode = localStorage.getItem('theme')
